@@ -19,6 +19,7 @@ def socialMedia ():
     # age = '21'
     # mobile = 'Android'
     # relationship = 'มี'
+    
 
     answer_list = [gender, age, mobile, relationship]
     pred = social.pred_pipeline(answer_list)
