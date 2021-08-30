@@ -1,12 +1,13 @@
 from flask import Flask, request, jsonify
 import predict_social as social
+import random
 
 app = Flask(__name__)
 
 
 @app.route('/', methods=["GET"])
 def hello_world():
-    return 'Hello, DSE#4 Group6'
+    return 'Hello, DSE#4 Group66'
 
 @app.route('/socialtime')
 def socialMedia ():
@@ -29,6 +30,16 @@ def socialMedia ():
 
     return jsonify(result)
 
+@app.route('/mango-prediction', methods=["GET"])
+def mango_prediction():
+    url = request.args.get("url")
+    mango_list = ["เขียวเสวย", "ฟ้าลั่น", "แรด", "มันขุนศรี"]
+
+    jsonData = {
+        # "url" : url,
+        "result" : random.choice(mango_list)
+    }
+    return jsonify(jsonData)
 
 @app.route("/get_profile", methods=["GET"])
 def get_profile():
@@ -54,5 +65,5 @@ def query():
 
 
 if __name__ == '__main__':
-    # app.run(host="0.0.0.0", port=5000, debug=True)
-    app.run(host="0.0.0.0", debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+    # app.run(host="0.0.0.0", debug=False)
