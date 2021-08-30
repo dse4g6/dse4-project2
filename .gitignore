@@ -1,0 +1,6 @@
+# 
+/dockerfiles
+/ngrok
+/Deployment
+docker-compose.yml
+.DS_Store

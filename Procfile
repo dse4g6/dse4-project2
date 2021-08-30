@@ -1,0 +1,1 @@
+web: gunicorn --chdir ./volumes/src/ main:app
