@@ -1,9 +1,17 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 import predict_social as social
+import predict_mango as mango
 import random
 
-app = Flask(__name__)
+import pandas as pd
+import gspread
 
+import requests
+
+
+
+
+app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
 def hello_world():
@@ -35,19 +43,13 @@ def mango_prediction():
     url = request.args.get("url")
     mango_list = ["เขียวเสวย", "ฟ้าลั่น", "แรด", "มันขุนศรี"]
 
+    pred = mango.pred_pipeline(url)
+    pred = pred[0]
+
     jsonData = {
         # "url" : url,
-        "result" : random.choice(mango_list)
-    }
-    return jsonify(jsonData)
-
-@app.route("/get_profile", methods=["GET"])
-def get_profile():
-    name = request.args.get("name")
-    jsonData = {
-        "fname" : name,
-        "lname" : "Pimprasan",
-        "nickname" : "Big",
+        "result" : random.choice(mango_list),
+        "result" : pred
     }
     return jsonify(jsonData)
 
@@ -62,7 +64,6 @@ def query():
     # print(request.args)
     name = request.args.get("name")
     return 'Hello ' + name
-
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)

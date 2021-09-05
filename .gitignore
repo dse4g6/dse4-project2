@@ -4,3 +4,6 @@
 /Deployment
 docker-compose.yml
 .DS_Store
+/volumes/src/main-with-mcc.py
+/volumes/src/main-original.py
+/volumes/src/single-ripsaw-320018-adebeca3f1f8.json
