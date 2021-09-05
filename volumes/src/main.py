@@ -4,7 +4,7 @@ import predict_mango as mango
 import random
 
 import pandas as pd
-import gspread
+# import gspread
 
 import requests
 

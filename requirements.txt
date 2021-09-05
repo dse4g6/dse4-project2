@@ -9,7 +9,7 @@ gunicorn
 # gunicorn==20.0.4
 requests
 # tensorflow
-tensorflow==2.0.0
+tensorflow==2.5.0
 # keras
 numpy
 pillow
