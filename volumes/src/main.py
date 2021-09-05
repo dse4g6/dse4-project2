@@ -41,14 +41,14 @@ def socialMedia ():
 @app.route('/mango-prediction', methods=["GET"])
 def mango_prediction():
     url = request.args.get("url")
-    mango_list = ["เขียวเสวย", "ฟ้าลั่น", "แรด", "มันขุนศรี"]
+    # mango_list = ["เขียวเสวย", "ฟ้าลั่น", "แรด", "มันขุนศรี"]
 
     pred = mango.pred_pipeline(url)
     pred = pred[0]
 
     jsonData = {
-        # "url" : url,
-        "result" : random.choice(mango_list),
+        "url" : url,
+        # "result" : random.choice(mango_list),
         "result" : pred
     }
     return jsonify(jsonData)
